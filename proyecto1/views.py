@@ -2,6 +2,9 @@ from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
 
+def home(request):
+    return HttpResponse("Hello, World! Esta es la pagina de inicio\n")
+
 def index(request):
     return HttpResponse("Hello, World!\n")
 

@@ -19,6 +19,8 @@ from django.urls import path, include
 from proyecto1 import views
 
 urlpatterns = [
+    path('', views.home, name='home'),
+
     path('admin/', admin.site.urls),
 
     path('saludo/', views.index, name='index'),
