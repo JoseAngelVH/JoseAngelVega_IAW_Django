@@ -5,11 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    header{
+       background-color: red;
+       text-align: center;
+    }
+    #menu-izq{
+        float: left;
+        width: 20%;
+        background-color: blue;
+        height: 400px;
+        color: white;
+        text-align: center;
+    }
+    #menu-der{
+        float: right;
+        width: 80%;
+        background-color: green;
+        height: 400px;
+        text-align: center;
+    }
+    #pie{
+        background-color: black;
+        color: white;
+        text-align: center;
+    }
+</style>
 <body>
-    <h2>
+    <header>
+        <h1>
+            DJANGO EN 2ASIR
+        </h1>
+        <button>
+            <a class="btn btn-custom-nav" href="{% url 'inicio' %}">Inicio</a>
+        </button>
+        <button>
+            <a class="btn btn-custom-nav" href="{% url 'productos' %}">Productos</a>
+        </button>
+        <button>
+            <a class="btn btn-custom-nav" href="{% url 'secciones' %}">Secciones</a>
+        </button>
+    </header>
+
+   
+    <div id="menu-izq">
+        <h3>
+            Menu lateral
+        </h3>
+    </div>
+
+    <div id="menu-der">
+        <h2>
+            <p>
+                {{mensaje}}
+            </p>
+        </h2>
+    </div>
+
+    <footer id="pie">
         <p>
-            {{mensaje}}
+            Pagina diseñada para pruebas en django
         </p>
-    </h2>
+    </footer>
 </body>
 </html>

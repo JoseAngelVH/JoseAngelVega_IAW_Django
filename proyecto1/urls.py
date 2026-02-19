@@ -32,4 +32,8 @@ urlpatterns = [
     path('saludo2/', views.saludo),
 
     path('inicio/', include('app_inicio.urls')),
+
+    path('secciones/', include('secciones.urls')),
+
+    path('productos/', include('productos.urls')),
 ]
