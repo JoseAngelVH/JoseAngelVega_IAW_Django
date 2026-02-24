@@ -17,3 +17,21 @@ def productos(request):
     documento = planti.render(ctx)
 
     return HttpResponse(documento)
+
+def altas_productos(request):
+#    secciones = secciones.objects.all()
+    return render(request, "subplantillas_productos/altas_productos.html")
+
+def listado_productos(request):
+#    productos = productos.objects.all()
+#    secciones = secciones.objects.all()
+    return render(request, "subplantillas_productos/listado_productos.html")
+
+def altas_secciones(request):
+#    secciones = secciones.objects.all()
+    return render(request, "subplantillas_secciones/altas_secciones.html")
+
+def listado_secciones(request):
+#    productos = productos.objects.all()
+#    secciones = secciones.objects.all()
+    return render(request, "subplantillas_secciones/listado_secciones.html")

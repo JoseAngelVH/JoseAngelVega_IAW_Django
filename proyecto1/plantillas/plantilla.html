@@ -39,12 +39,18 @@
         <button>
             <a class="btn btn-custom-nav" href="{% url 'inicio' %}">Inicio</a>
         </button>
-        <button>
-            <a class="btn btn-custom-nav" href="{% url 'productos' %}">Productos</a>
-        </button>
-        <button>
-            <a class="btn btn-custom-nav" href="{% url 'secciones' %}">Secciones</a>
-        </button>
+
+        <select id="opciones" name="opciones" onchange="if(this.value) location.href=this.value;">
+            <option disabled selected value="">Productos</option>
+            <option value="{% url 'altas_productos' %}">Altas</option>
+            <option value="{% url 'listado_productos' %}">Listado</option>
+        </select>
+                <!-- hacer un desplegable en los botones de productos y secciones-->
+        <select id="opciones" name="opciones" onchange="if(this.value) location.href=this.value;">
+            <option disabled selected value="">secciones</option>
+            <option value="{% url 'altas_secciones' %}">Altas</option>
+            <option value="{% url 'listado_secciones' %}">Listado</option>
+        </select>
     </header>
 
    
@@ -55,6 +61,8 @@
     </div>
 
     <div id="menu-der">
+        {% block content %}
+        {% endblock %}
         <h2>
             <p>
                 {{mensaje}}
