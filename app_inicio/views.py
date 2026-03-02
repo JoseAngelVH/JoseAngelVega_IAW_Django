@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.template import Template, Context
 
 def inicio(request):
-    doc_externo = open("/home/usuario/Escritorio/IAW/Django/proyecto1/proyecto1/plantillas/plantilla.html")
+    doc_externo = open("C:\\Users\\Usuario\\Desktop\\JoseAngelVega_IAW_Django\\proyecto1\\plantillas\\plantilla.html")
 
     mensaje = "Bienvenido a la página de inicio"
 
