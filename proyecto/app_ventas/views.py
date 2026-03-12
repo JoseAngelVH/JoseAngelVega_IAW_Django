@@ -4,7 +4,11 @@ from .forms import VentaForm
 
 def lista_ventas(request):
     fecha = request.GET.get('fecha')
-    ventas = Venta.objects.all()
+    mostrar = request.GET.get('mostrar', '')
+    if mostrar == 'inactivos':
+        ventas = Venta.objects.filter(activo=False)
+    else:
+        ventas = Venta.objects.filter(activo=True)
     total_ventas = None
 
     if fecha:
@@ -17,7 +21,8 @@ def lista_ventas(request):
         "ventas": ventas,
         "fechas": fechas,
         "total_ventas": total_ventas,
-        "fecha_seleccionada": fecha
+        "fecha_seleccionada": fecha,
+        "mostrar": mostrar
     })
 
 def nueva_venta(request):
@@ -46,5 +51,12 @@ def editar_venta(request, id):
 def anular_venta(request, id):
     venta = get_object_or_404(Venta, id=id)
     venta.activo = False 
+    venta.save()
+    return redirect("ventas")
+
+def reactivar_venta(request, id):
+    """Reactivar una venta anulada (activo=True)."""
+    venta = get_object_or_404(Venta, id=id)
+    venta.activo = True
     venta.save()
     return redirect("ventas")

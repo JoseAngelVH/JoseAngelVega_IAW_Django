@@ -2,7 +2,7 @@ from django.shortcuts import render
 import json
 # Create your views here.
 def ver_configuracion(request):
-    archivo = 'app_configuracion/empresa.json'
+    archivo = 'app_configuracion/datos_empresa.json'
     with open(archivo, 'r') as fichero:
         empresa = json.load(fichero)
     

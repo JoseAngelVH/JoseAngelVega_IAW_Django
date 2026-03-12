@@ -10,7 +10,8 @@ def lista_productos(request):
     precio_min = request.GET.get('precio_min', '')
     precio_max = request.GET.get('precio_max', '')
 
-    productos = Producto.objects.all()
+    # Mostrar solo productos activos por defecto
+    productos = Producto.objects.filter(activo=True)
 
     # Filtramos según los parámetros si existen
     if nombre:
@@ -71,3 +72,15 @@ def eliminar_producto(request, id):
     producto = get_object_or_404(Producto, id=id)
     producto.delete()  
     return redirect("productos")
+
+def anular_producto(request, id):
+    """Marca un producto como no activo (anulación lógica) en lugar de borrarlo.
+
+    Esto evita errores en las plantillas que esperan la URL 'anular_producto'
+    y preserva el registro en la base de datos.
+    """
+    producto = get_object_or_404(Producto, id=id)
+    producto.activo = False
+    producto.save()
+    return redirect("productos")
+
